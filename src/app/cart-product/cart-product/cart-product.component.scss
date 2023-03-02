@@ -1,0 +1,11 @@
+:host>div {
+  display: flex;
+  grid-template-columns: 1fr 25px;
+  grid-column-gap: 10px;
+  border: 1px solid blue;
+  padding: 10px;
+}
+
+div:nth-child(1) {
+  font-weight: bold;
+}

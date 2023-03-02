@@ -1,0 +1,6 @@
+<div class="productDes">
+    <div class="textColor">{{product.name}}</div>
+    <div>{{product.price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}}</div>
+    <button (click)="addProductToCart(product)">+</button>
+    <button (click)="removeProductFromCart(product)">-</button>
+</div>

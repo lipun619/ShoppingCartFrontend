@@ -1,0 +1,35 @@
+<app-product-list (productAdded)="addProductToCart($event)" (productRemoved)="removeProduct($event)"
+  [products]="productList"></app-product-list>
+<app-shopping-cart [products]="cartProductList"></app-shopping-cart>
+<div>
+  <button class="buttonDes" title="Click here to buy products" (click)="buyProduct()">Buy</button>
+  <button class="buttonDesClr"
+    title="This button is used to clear the localstorage data that is used here for simulating user state of logged in user"
+    (click)="clearUserStateData()">Clear UserState
+    Data</button>
+</div>
+
+
+<div *ngIf="cartProductList && buyButtonClick">
+  <h2>Your Shopping Cart Details</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Item Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total Price (including tax)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartProductList">
+        <td>{{ item.name }}</td>
+        <td>{{ item.price | currency }}</td>
+        <td>{{ item.num }}</td>
+        <td>{{ item.totalPrice | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Sales Tax: {{ totalsalesTax | currency }}</p>
+  <p>Total Amount: {{ totalPrice | currency }}</p>
+</div>

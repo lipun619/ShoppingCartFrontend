@@ -1,0 +1,19 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+}
+
+.buttonDes {
+  background: blue;
+  color: white;
+  margin-right: 20px;
+}
+.buttonDesClr {
+  background: orange;
+  color: white;
+}
+
+.table, th, td {
+  border: 2px solid black;
+}
