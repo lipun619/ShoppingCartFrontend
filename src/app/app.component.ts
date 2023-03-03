@@ -72,7 +72,7 @@ export class AppComponent implements OnInit {
   clearUserStateData() {
     if (localStorage.getItem('userCartData')) {
       localStorage.removeItem('userCartData');
-      alert("User state data cleared");
+      alert("User state data cleared, please refresh the page to see the change.");
     }
 
   }
