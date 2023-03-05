@@ -1,6 +1,6 @@
-:host>div {
-  display: flex;
-  grid-template-columns: 1fr 25px;
+.cartProduct {
+  display: grid;
+  grid-template-columns: 1fr auto;
   grid-column-gap: 10px;
   border: 1px solid blue;
   padding: 10px;

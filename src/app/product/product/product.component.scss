@@ -1,10 +1,19 @@
 .productDes {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     grid-column-gap: 10px;
     border: 1px solid blue;
     padding: 10px;
 }
 
+.bottonMargin {
+    margin-bottom: 5px;
+}
+
 .textColor {
     font-weight: bold;
+}
+
+button {
+    cursor: pointer;
 }
