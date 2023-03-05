@@ -1,0 +1,43 @@
+<div *ngIf="currentUser; else loggedOut">
+  <div>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+
+  <div class="menu">
+    <app-product-list (productAdded)="addProductToCart($event)" (productRemoved)="removeProduct($event)"
+      [products]="productList"></app-product-list>
+    <app-shopping-cart [products]="cartProductList"></app-shopping-cart>
+    <div>
+      <button title="Click here to buy products" (click)="buyProduct()">Buy</button>
+    </div>
+
+
+    <div *ngIf="cartProductList && buyButtonClick">
+      <h2>Your Shopping Cart Details</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total Price (including tax)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartProductList">
+            <td>{{ item.name }}</td>
+            <td>{{ item.price | currency }}</td>
+            <td>{{ item.num }}</td>
+            <td>{{ item.totalPrice | currency }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Sales Tax: {{ totalsalesTax | currency }}</p>
+      <p>Total Amount: {{ totalPrice | currency }}</p>
+    </div>
+  </div>
+</div>
+<ng-template #loggedOut>
+  <b>Please Login First!!</b>
+  <button class="logout-btn" (click)="login()">Login</button>
+</ng-template>
