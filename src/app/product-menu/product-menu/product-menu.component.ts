@@ -37,9 +37,13 @@ export class ProductMenuComponent implements OnInit {
     this.dataService.getAllProducts().subscribe(response => {
       this.productList = response;
     });
+
+    //Used session storage for retriving current user information
     if (sessionStorage.getItem('currentUser')) {
       this.currentUser = sessionStorage.getItem('currentUser');
     }
+
+    //Used local storage to retrive current user cart data if present
     if (localStorage.getItem('userCartData')) {
       this.userCartData = JSON.parse(localStorage.getItem('userCartData'));
       this.currentUserData = this.userCartData.find(user => user.email == this.currentUser);
@@ -92,6 +96,7 @@ export class ProductMenuComponent implements OnInit {
       this.userCartData.push(this.currentUserData);
     }
     
+    //After user has added or updated the cart storing his cart info to local storage.
     localStorage.setItem('userCartData', JSON.stringify(this.userCartData));
   }
 

@@ -19,6 +19,8 @@ export class LoginSignupComponent {
   }
 
   onSubmit() {
+    //This code checks if the user is already signed up, if already signed up then he will be logged in directely.
+    //If not signed up then his details will be stored in local storage and then he will be logged in
     if (this.loginForm.valid) {
       if (localStorage.getItem('signedUpUsers')) {
         this.signedUpUsers = JSON.parse(localStorage.getItem('signedUpUsers'));
